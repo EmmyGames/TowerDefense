@@ -1,0 +1,45 @@
+[gd_scene format=2]
+
+[node name="Bots"]
+
+[node name="Body2" parent="Rig" index="0"]
+transform = Transform( -0.389389, -9.03764e-08, -0.921073, 2.85559e-07, -1, -2.2601e-08, -0.921073, -2.71821e-07, 0.389389, -0.341186, 0.885069, -0.55298 )
+
+[node name="Socket_FR2" parent="Rig" index="1"]
+transform = Transform( -0.850067, 0.520604, 0.0797309, -1.19209e-07, -0.151386, 0.988475, 0.526674, 0.84027, 0.128688, 0, 0, 0 )
+
+[node name="LegFR" parent="Rig/Socket_FR2" index="0"]
+transform = Transform( 1, -3.38671e-07, -5.6433e-08, 5.5992e-09, 0.180429, -0.983588, 3.43295e-07, 0.983588, 0.180429, -2.54136e-08, 0.359783, -2.02955e-08 )
+
+[node name="Foot_FR2" parent="Rig/Socket_FR2/LegFR" index="0"]
+transform = Transform( -1, -5.68688e-08, 2.11738e-07, -2.11724e-07, -0.000242472, -1, 5.69202e-08, -1, 0.000242352, -5.98745e-08, 0.61983, -1.4441e-11 )
+
+[node name="Socket_FL2" parent="Rig" index="2"]
+transform = Transform( 0.902233, 0.426278, 0.0652849, 1.19209e-07, -0.151386, 0.988475, 0.431248, -0.891835, -0.136586, -6.18364e-10, -1.33284e-08, -1.10596 )
+
+[node name="Leg_FL2" parent="Rig/Socket_FL2" index="0"]
+transform = Transform( 1, 3.88927e-08, 2.58095e-08, -2.21854e-09, 0.591911, -0.806003, -4.66246e-08, 0.806003, 0.591911, 2.53385e-08, 0.359783, -9.60831e-08 )
+
+[node name="Foot_FL2" parent="Rig/Socket_FL2/Leg_FL2" index="0"]
+transform = Transform( -1, -4.51328e-07, 1.43534e-07, -1.43424e-07, -0.000242472, -1, 4.51362e-07, -1, 0.000242352, -7.96995e-08, 0.61983, 7.45058e-08 )
+
+[node name="Socket_BL2" parent="Rig" index="3"]
+transform = Transform( 0.907228, -0.41579, -0.0636787, 1.49012e-08, -0.151386, 0.988475, -0.420638, -0.896772, -0.137342, -0.682371, -2.23517e-08, -1.10596 )
+
+[node name="Leg_BL2" parent="Rig/Socket_BL2" index="0"]
+transform = Transform( 1, -3.62038e-07, -1.78289e-07, -1.99119e-08, 0.396991, -0.917822, 4.03066e-07, 0.917822, 0.396991, 5.78616e-08, 0.359783, 1.88441e-07 )
+
+[node name="Foot_BL2" parent="Rig/Socket_BL2/Leg_BL2" index="0"]
+transform = Transform( -1, -7.13801e-07, 7.5427e-08, -7.52538e-08, -0.000242591, -1, 7.13819e-07, -1, 0.000242591, 8.20532e-09, 0.61983, 1.42109e-14 )
+
+[node name="Socket_BR2" parent="Rig" index="4"]
+transform = Transform( -0.935097, -0.350306, -0.0536495, 1.63913e-07, -0.151386, 0.988475, -0.35439, 0.92432, 0.14156, -0.682371, -7.45058e-09, 0 )
+
+[node name="Leg_BR2" parent="Rig/Socket_BR2" index="0"]
+transform = Transform( 1, 3.31017e-07, 3.17384e-07, 5.98804e-08, 0.591911, -0.806003, -4.54664e-07, 0.806003, 0.591911, 6.74935e-08, 0.359783, -5.92174e-08 )
+
+[node name="Foot_BR2" parent="Rig/Socket_BR2/Leg_BR2" index="0"]
+transform = Transform( -1, 1.44973e-07, -2.78561e-08, 2.78209e-08, -0.00024271, -1, -1.44979e-07, -1, 0.000242591, 1.55936e-07, 0.61983, 2.98024e-08 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "walk-loop"
