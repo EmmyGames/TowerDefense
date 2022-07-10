@@ -1,3 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Spatial" type="Spatial"]
+[ext_resource path="res://TowerDefense/Models/Bot_Small.tscn" type="PackedScene" id=1]
+
+[node name="Level" type="Spatial"]
+
+[node name="Bot_Small" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.143, 0, 5.10863 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25.3613, 0 )
