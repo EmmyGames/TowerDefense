@@ -1,9 +1,161 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://TowerDefense/Models/Bot_Medium/Bot_Medium.glb" type="PackedScene" id=1]
-[ext_resource path="res://TowerDefense/Models/Bot_Medium/Metal.material" type="Material" id=2]
+[ext_resource path="res://TowerDefense/Materials/Metal.material" type="Material" id=2]
+[ext_resource path="res://TowerDefense/Materials/Eye.material" type="Material" id=3]
 
 [node name="Bot_Medium" instance=ExtResource( 1 )]
 
+[node name="Body2" parent="Bot_Medium_Rig" index="0"]
+transform = Transform( 2.98023e-07, -1.58932e-08, -1, 1.03316e-07, -1, 1.58933e-08, -1, -1.03316e-07, -3.57628e-07, 0, 0.846892, 3.70188e-08 )
+
+[node name="Socket_FR2" parent="Bot_Medium_Rig/Body2" index="0"]
+transform = Transform( -0.768695, -0.632244, -0.0968286, -1.78814e-07, 0.151386, -0.988475, 0.639616, -0.759835, -0.11637, -0.461355, 0.840743, -0.632098 )
+
+[node name="Leg_FR2" parent="Bot_Medium_Rig/Body2/Socket_FR2" index="0"]
+transform = Transform( 1, 2.57111e-07, -2.54831e-07, -3.57582e-07, 0.591912, -0.806003, -5.6395e-08, 0.806003, 0.591911, 9.03778e-08, 0.359783, 7.45058e-09 )
+
+[node name="Foot_FR2" parent="Bot_Medium_Rig/Body2/Socket_FR2/Leg_FR2" index="0"]
+transform = Transform( 1, -8.42978e-07, -2.15669e-07, 2.15464e-07, -0.000242352, 1, -8.4303e-07, -1, -0.000242352, -2.22069e-08, 0.61983, -8.9407e-08 )
+
+[node name="Foot_FR" parent="Bot_Medium_Rig/Body2/Socket_FR2/Leg_FR2/Foot_FR2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_FR" parent="Bot_Medium_Rig/Body2/Socket_FR2/Leg_FR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_FR" parent="Bot_Medium_Rig/Body2/Socket_FR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_FL2" parent="Bot_Medium_Rig/Body2" index="1"]
+transform = Transform( -0.391667, 0.919239, -0.0399528, -0.031571, -0.0568229, -0.997885, -0.919565, -0.389577, 0.0512768, 0.455628, 0.840743, -0.629234 )
+
+[node name="Leg_FL2" parent="Bot_Medium_Rig/Body2/Socket_FL2" index="0"]
+transform = Transform( 1, -7.72725e-07, 1.14105e-06, 1.37707e-06, 0.591911, -0.806003, -5.25805e-08, 0.806003, 0.591911, 2.08027e-08, 0.359783, -3.68657e-08 )
+
+[node name="Foot_FL2" parent="Bot_Medium_Rig/Body2/Socket_FL2/Leg_FL2" index="0"]
+transform = Transform( 1, -4.88464e-07, -7.00984e-07, 7.00866e-07, -0.000242352, 1, -4.88634e-07, -1, -0.000242352, 2.47387e-08, 0.61983, -1.19209e-07 )
+
+[node name="Foot_FL" parent="Bot_Medium_Rig/Body2/Socket_FL2/Leg_FL2/Foot_FL2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_FL" parent="Bot_Medium_Rig/Body2/Socket_FL2/Leg_FL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_FL" parent="Bot_Medium_Rig/Body2/Socket_FL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BL2" parent="Bot_Medium_Rig/Body2" index="2"]
+transform = Transform( 0.548481, 0.826526, 0.126584, 2.98023e-08, 0.151386, -0.988475, -0.836163, 0.54216, 0.0830325, 0.457735, 0.840743, 0.621561 )
+
+[node name="Leg_BL2" parent="Bot_Medium_Rig/Body2/Socket_BL2" index="0"]
+transform = Transform( 1, 6.00653e-09, 1.9446e-07, 1.5318e-07, 0.591911, -0.806003, -1.19944e-07, 0.806003, 0.591911, 1.23812e-08, 0.359782, -4.43162e-08 )
+
+[node name="Foot_BL2" parent="Bot_Medium_Rig/Body2/Socket_BL2/Leg_BL2" index="0"]
+transform = Transform( 1, -9.21934e-07, -9.70321e-07, 9.70097e-07, -0.000242233, 1, -9.22169e-07, -1, -0.000242233, 4.54508e-08, 0.61983, -1.19209e-07 )
+
+[node name="Foot_BL" parent="Bot_Medium_Rig/Body2/Socket_BL2/Leg_BL2/Foot_BL2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_BL" parent="Bot_Medium_Rig/Body2/Socket_BL2/Leg_BL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BL" parent="Bot_Medium_Rig/Body2/Socket_BL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_ML2" parent="Bot_Medium_Rig/Body2" index="3"]
+transform = Transform( -0.306269, 0.95129, -0.0352926, 0.0241285, -0.0293047, -0.999279, -0.951639, -0.3069, -0.013978, 0.638173, 0.840743, 0.00839251 )
+
+[node name="Leg_ML2" parent="Bot_Medium_Rig/Body2/Socket_ML2" index="0"]
+transform = Transform( 1, 6.57734e-08, -5.36682e-08, -8.21887e-08, 0.591912, -0.806003, -2.12467e-08, 0.806003, 0.591912, -4.26659e-10, 0.359783, -4.36059e-08 )
+
+[node name="Foot_ML2" parent="Bot_Medium_Rig/Body2/Socket_ML2/Leg_ML2" index="0"]
+transform = Transform( 1, -2.0302e-07, -8.47557e-08, 8.47066e-08, -0.000241876, 1, -2.03041e-07, -1, -0.000241876, -1.10265e-09, 0.61983, 5.12834e-08 )
+
+[node name="Foot_ML" parent="Bot_Medium_Rig/Body2/Socket_ML2/Leg_ML2/Foot_ML2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_ML" parent="Bot_Medium_Rig/Body2/Socket_ML2/Leg_ML2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_ML" parent="Bot_Medium_Rig/Body2/Socket_ML2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_MR2" parent="Bot_Medium_Rig/Body2" index="4"]
+transform = Transform( 0.274529, -0.950496, -0.145569, 5.96047e-08, 0.151386, -0.988475, 0.961579, 0.271365, 0.0415599, -0.626866, 0.840743, 0.0044844 )
+
+[node name="Leg_MR2" parent="Bot_Medium_Rig/Body2/Socket_MR2" index="0"]
+transform = Transform( 1, 2.30386e-08, 1.50985e-07, 1.08058e-07, 0.591911, -0.806003, -1.07939e-07, 0.806003, 0.591911, -3.03186e-08, 0.359783, -2.60309e-08 )
+
+[node name="Foot_MR2" parent="Bot_Medium_Rig/Body2/Socket_MR2/Leg_MR2" index="0"]
+transform = Transform( 1, -2.04808e-08, -2.16221e-07, 2.16216e-07, -0.000242352, 1, -2.05332e-08, -1, -0.000242352, -2.87999e-08, 0.61983, 8.06958e-08 )
+
+[node name="Foot_MR" parent="Bot_Medium_Rig/Body2/Socket_MR2/Leg_MR2/Foot_MR2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_MR" parent="Bot_Medium_Rig/Body2/Socket_MR2/Leg_MR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_MR" parent="Bot_Medium_Rig/Body2/Socket_MR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BR2" parent="Bot_Medium_Rig/Body2" index="5"]
+transform = Transform( 0.247897, -0.968514, 0.0229629, -0.00801417, -0.0257521, -0.999636, 0.968753, 0.247623, -0.0141456, -0.437532, 0.840743, 0.625684 )
+
+[node name="Leg_BR2" parent="Bot_Medium_Rig/Body2/Socket_BR2" index="0"]
+transform = Transform( 1, -3.34788e-07, 4.77268e-07, 5.82845e-07, 0.591911, -0.806003, -1.26601e-08, 0.806003, 0.591911, -9.12069e-08, 0.359783, 8.86325e-08 )
+
+[node name="Foot_BR2" parent="Bot_Medium_Rig/Body2/Socket_BR2/Leg_BR2" index="0"]
+transform = Transform( 1, 9.62038e-07, 8.5756e-07, -8.57327e-07, -0.000242949, 1, 9.62247e-07, -1, -0.000242949, -2.3244e-08, 0.61983, 1.19209e-07 )
+
+[node name="Foot_BR" parent="Bot_Medium_Rig/Body2/Socket_BR2/Leg_BR2/Foot_BR2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_BR" parent="Bot_Medium_Rig/Body2/Socket_BR2/Leg_BR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BR" parent="Bot_Medium_Rig/Body2/Socket_BR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Tail_12" parent="Bot_Medium_Rig/Body2" index="6"]
+transform = Transform( 1, -2.14884e-07, 4.82614e-08, 8.94992e-08, 0.196276, -0.980549, 2.01232e-07, 0.980549, 0.196276, -1.8663e-07, 0.376512, 1.29528 )
+
+[node name="Tail_22" parent="Bot_Medium_Rig/Body2/Tail_12" index="0"]
+transform = Transform( 1, 1.02076e-08, -3.41671e-08, -2.96453e-08, 0.77047, -0.637476, 1.98177e-08, 0.637476, 0.77047, -2.68359e-15, 0.544073, 2.29618e-08 )
+
+[node name="Tail_32" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22" index="0"]
+transform = Transform( 1, 4.54455e-09, -1.64583e-07, -7.29899e-08, 0.908261, -0.418404, 1.47583e-07, 0.418404, 0.908261, -1.811e-14, 0.377657, 2.00753e-08 )
+
+[node name="Tail_52" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22/Tail_32/Tail_42" index="0"]
+transform = Transform( 1, -3.03277e-08, -9.13057e-08, -2.16131e-08, 0.853949, -0.520356, 9.37516e-08, 0.520356, 0.853949, 3.10046e-14, 0.205148, -2.90772e-08 )
+
+[node name="Tail_62" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22/Tail_32/Tail_42/Tail_52" index="0"]
+transform = Transform( 1, -3.25263e-08, -1.21745e-07, -5.2678e-08, 0.76975, -0.638345, 1.14476e-07, 0.638345, 0.76975, 2.04281e-14, 0.162102, 2.98023e-08 )
+
+[node name="Tail_6" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22/Tail_32/Tail_42/Tail_52/Tail_62" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Tail_5" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22/Tail_32/Tail_42/Tail_52" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Tail_4" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22/Tail_32/Tail_42" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Tail_3" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22/Tail_32" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Tail_2" parent="Bot_Medium_Rig/Body2/Tail_12/Tail_22" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Tail_1" parent="Bot_Medium_Rig/Body2/Tail_12" index="1"]
+material/0 = ExtResource( 2 )
+
 [node name="Body" parent="Bot_Medium_Rig/Body2" index="7"]
 material/0 = ExtResource( 2 )
+
+[node name="Eye" parent="Bot_Medium_Rig/Body2/Body" index="0"]
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 3 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "walk-loop"
