@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://TowerDefense/Models/Bot_Small/Bot_Small.glb" type="PackedScene" id=1]
+[ext_resource path="res://TowerDefense/Materials/Metal.material" type="Material" id=2]
+[ext_resource path="res://TowerDefense/Materials/Eye.material" type="Material" id=3]
+
+[node name="Bot_Small" instance=ExtResource( 1 )]
+
+[node name="Body2" parent="Rig" index="0"]
+transform = Transform( -0.389389, -9.03764e-08, -0.921073, 2.85559e-07, -1, -2.2601e-08, -0.921073, -2.71821e-07, 0.389389, -0.341186, 0.885069, -0.55298 )
+
+[node name="Body" parent="Rig/Body2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Eye" parent="Rig/Body2/Body" index="0"]
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 3 )
+
+[node name="Socket_FR2" parent="Rig" index="1"]
+transform = Transform( -0.727666, 0.678026, 0.10384, -2.38419e-07, -0.151386, 0.988475, 0.685932, 0.719279, 0.110159, 0, 0, 0 )
+
+[node name="LegFR" parent="Rig/Socket_FR2" index="0"]
+transform = Transform( 1, -2.70465e-07, -2.33627e-07, -2.82131e-08, 0.591911, -0.806003, 3.56282e-07, 0.806003, 0.591911, -2.54136e-08, 0.359783, -2.02955e-08 )
+
+[node name="Foot_FR2" parent="Rig/Socket_FR2/LegFR" index="0"]
+transform = Transform( -1, -5.68688e-08, 2.11738e-07, -2.11724e-07, -0.000242353, -1, 5.69202e-08, -1, 0.000242293, -5.98745e-08, 0.61983, -1.4441e-11 )
+
+[node name="Foot_FR" parent="Rig/Socket_FR2/LegFR/Foot_FR2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_FR" parent="Rig/Socket_FR2/LegFR" index="1"]
+transform = Transform( -0.0882869, 2.79397e-08, 1.49012e-08, 1.67638e-08, -9.31323e-09, 0.117316, 2.04891e-08, 0.0776121, 3.72529e-08, 2.98023e-08, -0.0314137, 1.78814e-07 )
+material/0 = ExtResource( 2 )
+
+[node name="Socket_FR" parent="Rig/Socket_FR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_FL2" parent="Rig" index="2"]
+transform = Transform( 0.976178, 0.214468, 0.032846, 9.68575e-08, -0.151386, 0.988475, 0.216969, -0.964928, -0.14778, -6.18364e-10, -1.33284e-08, -1.10596 )
+
+[node name="Leg_FL2" parent="Rig/Socket_FL2" index="0"]
+transform = Transform( 1, 3.75486e-08, 2.80632e-09, -1.31872e-08, 0.419064, -0.907957, -3.52685e-08, 0.907956, 0.419064, 2.53385e-08, 0.359783, -9.60831e-08 )
+
+[node name="Foot_FL2" parent="Rig/Socket_FL2/Leg_FL2" index="0"]
+transform = Transform( -1, -4.51328e-07, 1.43534e-07, -1.43424e-07, -0.000242352, -1, 4.51362e-07, -1, 0.000242293, -7.96995e-08, 0.61983, 7.45058e-08 )
+
+[node name="Foot_FL" parent="Rig/Socket_FL2/Leg_FL2/Foot_FL2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_FL" parent="Rig/Socket_FL2/Leg_FL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_FL" parent="Rig/Socket_FL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BL2" parent="Rig" index="3"]
+transform = Transform( 0.979271, -0.200221, -0.0306641, 7.45058e-09, -0.151386, 0.988475, -0.202555, -0.967984, -0.148248, -0.682371, -2.23517e-08, -1.10596 )
+
+[node name="Leg_BL2" parent="Rig/Socket_BL2" index="0"]
+transform = Transform( 1, -3.26723e-07, -2.41186e-07, -1.00563e-09, 0.591911, -0.806003, 4.06101e-07, 0.806003, 0.591911, 5.78616e-08, 0.359783, 1.88441e-07 )
+
+[node name="Foot_BL2" parent="Rig/Socket_BL2/Leg_BL2" index="0"]
+transform = Transform( -1, -7.13801e-07, 7.54269e-08, -7.52538e-08, -0.000242591, -1, 7.13819e-07, -1, 0.000242472, 8.20532e-09, 0.61983, 1.42109e-14 )
+
+[node name="Foot_BL" parent="Rig/Socket_BL2/Leg_BL2/Foot_BL2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_BL" parent="Rig/Socket_BL2/Leg_BL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BL" parent="Rig/Socket_BL2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BR2" parent="Rig" index="4"]
+transform = Transform( -0.889074, -0.452486, -0.0692985, 8.94069e-08, -0.151386, 0.988475, -0.457761, 0.878828, 0.134593, -0.682371, -7.45058e-09, 0 )
+
+[node name="Leg_BR2" parent="Rig/Socket_BR2" index="0"]
+transform = Transform( 1, 3.70909e-07, 2.62026e-07, 5.29368e-08, 0.477848, -0.878442, -4.51031e-07, 0.878442, 0.477848, 6.74935e-08, 0.359783, -5.92174e-08 )
+
+[node name="Foot_BR2" parent="Rig/Socket_BR2/Leg_BR2" index="0"]
+transform = Transform( -1, 1.44973e-07, -2.7856e-08, 2.78209e-08, -0.000242591, -1, -1.44979e-07, -1, 0.000242591, 1.55936e-07, 0.61983, 2.98024e-08 )
+
+[node name="Foot_BR" parent="Rig/Socket_BR2/Leg_BR2/Foot_BR2" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg_BR" parent="Rig/Socket_BR2/Leg_BR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="Socket_BR" parent="Rig/Socket_BR2" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "walk-loop"

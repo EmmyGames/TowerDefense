@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Bot_Small.glb-03f9b73f94793c9631c068ba21fb7cb1.scn"
+path="res://.import/Bot_Small.glb-9ee6bee992ab089929296271e87ab91b.scn"
 
 [deps]
 
-source_file="res://TowerDefense/Models/Bot_Small.glb"
-dest_files=[ "res://.import/Bot_Small.glb-03f9b73f94793c9631c068ba21fb7cb1.scn" ]
+source_file="res://TowerDefense/Models/Bot_Small/Bot_Small.glb"
+dest_files=[ "res://.import/Bot_Small.glb-9ee6bee992ab089929296271e87ab91b.scn" ]
 
 [params]
 
