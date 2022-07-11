@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://TowerDefense/Scripts/cameraPan.gd" type="Script" id=1]
+[ext_resource path="res://TowerDefense/Scripts/GameState.gd" type="Script" id=2]
+[ext_resource path="res://TowerDefense/Scripts/buttonManager.gd" type="Script" id=3]
+[ext_resource path="res://TowerDefense/Models/Turret_AOE/Turret_AOE_Stage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TowerDefense/Models/Turret_Basic/Turret_Basic_Stage.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -27,41 +31,89 @@ shape = SubResource( 1 )
 [node name="CSGBox" type="CSGBox" parent="Ground/CollisionShape"]
 material = SubResource( 2 )
 
-[node name="ReferencePoint" type="CSGBox" parent="."]
+[node name="ReferencePoints" type="Node" parent="."]
+
+[node name="ReferencePoint" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, -2.74782 )
 
-[node name="ReferencePoint2" type="CSGBox" parent="."]
+[node name="ReferencePoint2" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, -40.6351 )
 
-[node name="ReferencePoint3" type="CSGBox" parent="."]
+[node name="ReferencePoint3" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, -68.5415 )
 
-[node name="ReferencePoint12" type="CSGBox" parent="."]
+[node name="ReferencePoint12" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, -106.19 )
 
-[node name="ReferencePoint13" type="CSGBox" parent="."]
+[node name="ReferencePoint13" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, 99.1601 )
 
-[node name="ReferencePoint4" type="CSGBox" parent="."]
+[node name="ReferencePoint4" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, 29.7279 )
 
-[node name="ReferencePoint5" type="CSGBox" parent="."]
+[node name="ReferencePoint5" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10346, 65.7914 )
 
-[node name="ReferencePoint6" type="CSGBox" parent="."]
+[node name="ReferencePoint6" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7978, 1.10346, -4.1058 )
 
-[node name="ReferencePoint7" type="CSGBox" parent="."]
+[node name="ReferencePoint7" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.572, 1.10346, -4.1058 )
 
-[node name="ReferencePoint8" type="CSGBox" parent="."]
+[node name="ReferencePoint8" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3278, 1.10346, -4.1058 )
 
-[node name="ReferencePoint9" type="CSGBox" parent="."]
+[node name="ReferencePoint9" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6302, 1.10346, -3.78944 )
 
-[node name="ReferencePoint10" type="CSGBox" parent="."]
+[node name="ReferencePoint10" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.8153, 1.10346, -3.78944 )
 
-[node name="ReferencePoint11" type="CSGBox" parent="."]
+[node name="ReferencePoint11" type="CSGBox" parent="ReferencePoints"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.9039, 1.10346, -3.78944 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 825.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 602.0
+color = Color( 1, 1, 1, 0.235294 )
+
+[node name="Tower1" type="Button" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 50.0
+margin_right = 190.0
+margin_bottom = 150.0
+text = "Tower 1"
+script = ExtResource( 3 )
+tower = ExtResource( 6 )
+
+[node name="Tower2" type="Button" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 160.0
+margin_right = 190.0
+margin_bottom = 260.0
+text = "Tower 2"
+script = ExtResource( 3 )
+tower = ExtResource( 5 )
+
+[node name="Tower3" type="Button" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 270.0
+margin_right = 190.0
+margin_bottom = 370.0
+text = "Tower 3"
+script = ExtResource( 3 )
+tower = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 500.0
+margin_right = 190.0
+margin_bottom = 550.0
+text = "Coins:"
+align = 1
+valign = 1
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource( 2 )
