@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://TowerDefense/Models/Bot_Medium/Bot_Medium.glb" type="PackedScene" id=1]
-[ext_resource path="res://TowerDefense/Materials/Metal.material" type="Material" id=2]
+[ext_resource path="res://TowerDefense/Materials/Metal_Silver.material" type="Material" id=2]
 [ext_resource path="res://TowerDefense/Materials/Eye.material" type="Material" id=3]
+
 
 [node name="Bot_Medium" instance=ExtResource( 1 )]
 
