@@ -1,8 +1,11 @@
 extends Spatial
 
+export (PackedScene) var tower
 onready var camera: Camera = get_node("../Camera")
 var ray_origin = Vector3()
 var ray_end = Vector3()
+onready var gs: GameState = get_node("/root/Spatial/GameState")
+onready var spatial = get_node("/root/Spatial")
 
 #func _input(event):
 #	if event is InputEventMouseMotion:
@@ -20,3 +23,21 @@ func _physics_process(delta):
 	if not intersection.empty():
 		var pos = intersection.position
 		global_transform.origin = pos
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Prevents errors when other keys are pressed.
+	if event is InputEventMouse:
+		if event.is_pressed():
+			if event.button_index == BUTTON_LEFT:
+				print("left")
+				gs.current_state = gs.State.IDLE
+				var new_tower = tower.instance()
+				spatial.add_child(new_tower)
+				new_tower.global_transform.origin = global_transform.origin
+				queue_free()
+				# TODO: deduct money
+			if event.button_index == BUTTON_RIGHT:
+				print("right")
+				gs.current_state = gs.State.IDLE
+				queue_free()

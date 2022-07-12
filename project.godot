@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://TowerDefense/Scripts/GameState.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 } ]
 _global_script_class_icons={
+"GameState": "",
 "GitAPI": ""
 }
 
