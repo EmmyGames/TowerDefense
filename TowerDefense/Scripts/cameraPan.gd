@@ -10,7 +10,7 @@ var zoom: float
 var _target_zoom: float
 
 const MIN_ZOOM: float = 10.0
-const MAX_ZOOM: float = 30.0
+export var MAX_ZOOM: float
 const ZOOM_INCREMENT: float = 0.5
 const ZOOM_RATE: float = 8.0
 
