@@ -12,7 +12,8 @@ func _physics_process(delta):
 	var mouse_position = get_viewport().get_mouse_position()
 	ray_origin = camera.project_ray_origin(mouse_position)
 	ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 2000
-	var intersection = space_state.intersect_ray(ray_origin, ray_end)
+	var arr: Array
+	var intersection = space_state.intersect_ray(ray_origin, ray_end, arr, 1)
 	
 	if not intersection.empty():
 		var pos = intersection.position
