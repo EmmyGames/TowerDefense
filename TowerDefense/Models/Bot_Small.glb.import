@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Turret_Sniper.glb-90ac1c143946f31f7c9e460cd60a917d.scn"
+path="res://.import/Bot_Small.glb-03f9b73f94793c9631c068ba21fb7cb1.scn"
 
 [deps]
 
-source_file="res://TowerDefense/Models/Turret_Sniper/Turret_Sniper.glb"
-dest_files=[ "res://.import/Turret_Sniper.glb-90ac1c143946f31f7c9e460cd60a917d.scn" ]
+source_file="res://TowerDefense/Models/Bot_Small.glb"
+dest_files=[ "res://.import/Bot_Small.glb-03f9b73f94793c9631c068ba21fb7cb1.scn" ]
 
 [params]
 
