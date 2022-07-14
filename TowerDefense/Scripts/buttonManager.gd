@@ -11,7 +11,6 @@ func _ready():
 
 func stage_tower() -> void:
 	if gs.current_state == gs.State.IDLE:
-		print("Stage Tower")
 		var new_tower = tower.instance()
 		spatial.add_child(new_tower)
 		gs.current_state = gs.State.STAGING
