@@ -1,6 +1,8 @@
 extends Spatial
+class_name TowerStaging
 
 export (PackedScene) var tower
+export var price: int
 onready var camera: Camera = get_node("../Camera")
 var ray_origin = Vector3()
 var ray_end = Vector3()
@@ -29,8 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				var new_tower = tower.instance()
 				spatial.add_child(new_tower)
 				new_tower.global_transform.origin = global_transform.origin
+				gs.pay_for_tower(price)
 				queue_free()
-				# TODO: deduct money
 			if event.button_index == BUTTON_RIGHT:
 				gs.current_state = gs.State.IDLE
 				queue_free()
