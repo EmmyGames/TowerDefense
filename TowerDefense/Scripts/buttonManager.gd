@@ -12,7 +12,7 @@ func _ready():
 
 
 func stage_tower() -> void:
-	if gs.current_state == gs.State.IDLE && gs.currency >= tower.instance().price:
+	if gs.current_state == gs.State.IDLE && gs.get_currency() >= tower.instance().price:
 		var new_tower = tower.instance()
 		spatial.add_child(new_tower)
 		gs.current_state = gs.State.STAGING
