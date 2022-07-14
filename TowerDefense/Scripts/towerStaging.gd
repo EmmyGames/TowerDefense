@@ -24,7 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Prevents errors when other keys are pressed.
 	if event is InputEventMouse:
 		if event.is_pressed():
-			if event.button_index == BUTTON_LEFT:
+			if event.button_index == BUTTON_LEFT and gs.valid_placement:
 				gs.current_state = gs.State.IDLE
 				var new_tower = tower.instance()
 				spatial.add_child(new_tower)

@@ -1,17 +1,30 @@
 extends RigidBody
 
-export (Array, Resource) var things
-var isValid: bool
+export var invalid_material: Material
+export var valid_material: Material
+onready var base: MeshInstance = get_node("../Base")
+onready var gs: GameState = get_node("/root/Spatial/GameState")
+var meshes: Array
 
 func _ready():
 	connect("body_entered", self, "collision_detection")
 	
-
 # Make sure the group goes on the rigidbody of things that have rbs.
 func collision_detection(body):
 	if body.is_in_group("not_valid"):
-		print("no")
-		# TODO: change mats
-		# It's probably going to be easier to store all the things that need different mats in a list manually.
+		change_all_meshes(invalid_material)
+		gs.valid_placement = false
 	else:
-		print("yes")
+		change_all_meshes(valid_material)
+		gs.valid_placement = true
+		
+
+func change_all_meshes(var material: Material):
+	var parent = get_parent()
+	meshes = get_tree().get_nodes_in_group("mesh")
+	for mesh in meshes:
+		mesh.material_override = material
+
+# Get the parent node (Turret_Basic)
+# Get all MeshInstance children and add them to a list
+# Change the material on each child to a certain material
