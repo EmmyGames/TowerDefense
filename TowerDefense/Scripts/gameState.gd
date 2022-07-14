@@ -6,4 +6,8 @@ class_name GameState
 enum State {IDLE, STAGING}
 var current_state = State.IDLE
 var valid_placement: bool
-var currency: int = 0
+var currency: int = 100
+onready var coins : Label = get_node("../ColorRect/Coins")
+
+func _ready():
+	coins.text = "Coins: " + str(currency)

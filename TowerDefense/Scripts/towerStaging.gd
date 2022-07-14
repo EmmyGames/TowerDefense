@@ -1,6 +1,8 @@
 extends Spatial
+class_name TowerStaging
 
 export (PackedScene) var tower
+export var price: int
 onready var camera: Camera = get_node("../Camera")
 var ray_origin = Vector3()
 var ray_end = Vector3()
