@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="TowerDefense"
-run/main_scene="res://TowerDefense/_Scenes/Scene_01.tscn"
+run/main_scene="res://TowerDefense/_Scenes/ErickTest.tscn"
 config/icon="res://icon.png"
 
 [gdnative]

@@ -7,7 +7,7 @@ enum State {IDLE, STAGING}
 var current_state = State.IDLE
 var valid_placement: bool
 var currency: int = 1000
-onready var coins : Label = get_node("../ColorRect/Coins")
+onready var coins : Label = get_node("../UI/Coins")
 
 func _ready():
 	coins.text = "Coins: " + str(currency)
