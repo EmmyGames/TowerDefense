@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="TowerDefense"
-run/main_scene="res://TowerDefense/_Scenes/Scene_01.tscn"
+run/main_scene="res://TowerDefense/_Scenes/ErickTest.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
@@ -54,5 +54,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"
