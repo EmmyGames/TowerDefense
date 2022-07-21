@@ -1,14 +1,18 @@
 extends KinematicBody
 
 export var speed: float
+export var max_health: int
+
 enum { DAMAGED, WALK, DIE, COMPLETE }
+var current_health: int
 var path = []
 var path_node = 0
-onready var nav = get_node("/root/Spatial/Navigation")
 var current_state = WALK
 var way_points
 var way_point_index: int = 0
 
+onready var nav = get_node("/root/Spatial/Navigation")
+onready var gs: GameState = get_node("/root/Spatial/GameState")
 onready var wp_01 = get_node("/root/Spatial/WayPoints/WP1")
 onready var wp_02 = get_node("/root/Spatial/WayPoints/WP2")
 onready var wp_03 = get_node("/root/Spatial/WayPoints/WP3")
@@ -16,6 +20,7 @@ onready var wp_04 = get_node("/root/Spatial/WayPoints/WP4")
 
 
 func _ready():
+	current_health = max_health
 	create_path_array()
 	calc_patrol_path()
 
@@ -43,8 +48,9 @@ func calc_path():
 					way_point_index += 1
 				# If there are no more waypoints, they got to the end, so destroy them.
 				else:
-					queue_free()
 					# TODO: Deal damage to lives based on health.
+					gs.lose_lives(current_health)
+					queue_free()
 			calc_patrol_path()
 
 

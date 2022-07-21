@@ -2,9 +2,12 @@ extends RigidBody
 
 export var invalid_material: Material
 export var valid_material: Material
+
+var meshes: Array
+
 onready var base: MeshInstance = get_node("../Base")
 onready var gs: GameState = get_node("/root/Spatial/GameState")
-var meshes: Array
+
 
 func _ready():
 	connect("body_entered", self, "collision_detection")
