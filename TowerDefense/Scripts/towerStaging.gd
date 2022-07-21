@@ -3,11 +3,14 @@ class_name TowerStaging
 
 export (PackedScene) var tower
 export var price: int
-onready var camera: Camera = get_node("../Camera")
+
 var ray_origin = Vector3()
 var ray_end = Vector3()
+
+onready var camera: Camera = get_node("../Camera")
 onready var gs: GameState = get_node("/root/Spatial/GameState")
 onready var spatial = get_node("/root/Spatial")
+
 
 func _physics_process(delta):
 	var space_state = get_world().direct_space_state
