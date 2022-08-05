@@ -2,6 +2,7 @@ extends KinematicBody
 
 export var speed: float
 export var max_health: int
+export var reward: int
 
 enum { DAMAGED, WALK, DIE, COMPLETE }
 var current_health: int

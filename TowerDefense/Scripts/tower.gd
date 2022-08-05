@@ -21,7 +21,8 @@ func _ready():
 
 func _physics_process(delta):
 	target_enemy()
-
+	# if current_target is not null
+	# attack enemy every rate_of_fire
 
 func target_enemy() -> void:
 	# print("default")
@@ -32,4 +33,7 @@ func target_enemy() -> void:
 			break
 		else:
 			current_target = null
-	
+
+
+func attack_enemy() -> void:
+	pass
