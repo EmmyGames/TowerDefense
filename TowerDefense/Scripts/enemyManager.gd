@@ -58,3 +58,11 @@ func calc_path():
 func calc_patrol_path():
 	path = nav.get_simple_path(global_transform.origin, way_points[way_point_index].global_transform.origin, true)
 	path_node = 0
+
+
+func get_current_health() -> int:
+	return current_health
+
+
+func take_damage(var damage: int) -> void:
+	current_health -= damage
