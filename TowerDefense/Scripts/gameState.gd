@@ -34,3 +34,8 @@ func lose_lives(var damage: int) -> void:
 		current_lives = 0
 		# TODO: Go to loss screen
 	lives_UI.text = "Lives: " + str(current_lives)
+
+
+func add_currency(var reward: int) -> void:
+	currency += reward
+	coins.text = "Coins: " + str(currency)

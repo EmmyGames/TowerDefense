@@ -22,5 +22,3 @@ func instantiate_enemy():
 	var enemy = enemies[random_num].instance()
 	enemy_node.add_child(enemy)
 	enemy.global_transform.origin = global_transform.origin
-
-
