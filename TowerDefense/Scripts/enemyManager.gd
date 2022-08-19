@@ -9,15 +9,12 @@ var current_health: int
 var path = []
 var path_node = 0
 var current_state = WALK
-var way_points
+var way_points: Array
 var way_point_index: int = 0
 
 onready var nav = get_node("/root/Spatial/Navigation")
 onready var gs: GameState = get_node("/root/Spatial/GameState")
-onready var wp_01 = get_node("/root/Spatial/WayPoints/WP1")
-onready var wp_02 = get_node("/root/Spatial/WayPoints/WP2")
-onready var wp_03 = get_node("/root/Spatial/WayPoints/WP3")
-onready var wp_04 = get_node("/root/Spatial/WayPoints/WP4")
+onready var waypoints_node = get_node("/root/Spatial/WayPoints")
 
 
 func _ready():
@@ -30,7 +27,9 @@ func _physics_process(delta):
 
 
 func create_path_array():
-	way_points = [wp_01, wp_02, wp_03, wp_04]
+	#way_points = [wp_01, wp_02, wp_03, wp_04]
+	for c in waypoints_node.get_children():
+		way_points.append(c)
 
 
 func calc_path():
