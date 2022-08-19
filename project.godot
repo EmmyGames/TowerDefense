@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody",
+"class": "EnemyManager",
+"language": "GDScript",
+"path": "res://TowerDefense/Scripts/enemyManager.gd"
+}, {
 "base": "Node",
 "class": "GameState",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://TowerDefense/Scripts/towerStaging.gd"
 } ]
 _global_script_class_icons={
+"EnemyManager": "",
 "GameState": "",
 "GitAPI": "",
 "Tower": "",

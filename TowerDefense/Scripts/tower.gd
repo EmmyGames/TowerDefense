@@ -55,10 +55,4 @@ func attack_enemy() -> void:
 	attack_timer.wait_time = 1 / rate_of_fire
 	attack_timer.start()
 	var enemy_manager = current_target.get_node("../")
-	enemy_manager.take_damage(damage)
-	if enemy_manager.get_current_health() <= 0:
-		current_target = null
-		enemy_manager.gs.add_currency(enemy_manager.reward)
-		kill_count += 1
-		enemy_manager.queue_free() 
-
+	enemy_manager.take_damage(self, damage)

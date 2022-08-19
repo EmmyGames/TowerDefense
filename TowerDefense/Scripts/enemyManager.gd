@@ -1,8 +1,11 @@
+class_name EnemyManager
+
 extends KinematicBody
 
 export var speed: float
 export var max_health: int
 export var reward: int
+export var spawn_cost: int
 
 enum { DAMAGED, WALK, DIE, COMPLETE }
 var current_health: int
@@ -50,18 +53,27 @@ func calc_path():
 				else:
 					# TODO: Deal damage to lives based on health.
 					gs.lose_lives(current_health)
-					queue_free()
+#					queue_free()
+					get_parent().remove_child(self)
+					
 			calc_patrol_path()
 
 
 func calc_patrol_path():
-	path = nav.get_simple_path(global_transform.origin, way_points[way_point_index].global_transform.origin, true)
-	path_node = 0
+	if self.is_inside_tree():
+		path = nav.get_simple_path(global_transform.origin, way_points[way_point_index].global_transform.origin, true)
+		path_node = 0
 
 
 func get_current_health() -> int:
 	return current_health
 
 
-func take_damage(var damage: int) -> void:
+func take_damage(var killer : Tower, var damage: int) -> void:
 	current_health -= damage
+	if current_health <= 0 and self.is_inside_tree():
+		killer.kill_count += 1
+		killer.current_target = null
+		gs.add_currency(reward)
+		get_parent().remove_child(self)
+		
