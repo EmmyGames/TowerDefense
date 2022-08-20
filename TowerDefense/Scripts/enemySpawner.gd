@@ -1,28 +1,26 @@
 extends Spatial
 
 export (Array, PackedScene) var enemies
-export var value_multiplier: int
 export var max_wave: int
+export var value_multiplier: int
 export var wave_duration: float
 export var wave_interval: float
-enum State {SPAWNING, WAITING, COUNTING, WIN, LOSE}
+
+enum State {SPAWNING, WAITING, COUNTING, WIN}
 var current_wave: int = 0
+var rng = RandomNumberGenerator.new()
+var spawn_interval: float
+var spawn_state = State.COUNTING
+var spawn_timer: float
+var wave: Array
+var wave_timer: float = 0
 var wave_value: int
 
-var spawn_interval: float
-
-var wave: Array
-
-var spawn_timer: float
-var wave_timer: float = 0
-var rng = RandomNumberGenerator.new()
-var spawn_state = State.COUNTING
-
-
 onready var enemy_node = get_node("/root/Spatial/Enemies")
+onready var gs: GameState = get_node("/root/Spatial/GameState")
 
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	match spawn_state:
 		State.SPAWNING:
 			if spawn_timer <= 0 and wave.size() > 0:
@@ -44,44 +42,26 @@ func _physics_process(delta):
 			if wave_timer <= 0:
 				spawn_state = State.SPAWNING
 				current_wave += 1
+				gs.set_wave(current_wave)
 				generate_wave()
 				spawn_timer = spawn_interval
 		State.WIN:
-			print("You won!")
-#	if spawn_state == State.SPAWNING:
-#		if spawn_timer <= 0 and wave.size() > 0:
-#			spawn_enemy()
-#		elif wave.size() == 0:
-#			spawn_state = State.WAITING
-#			spawn_timer = 0
-#		else:
-#			spawn_timer -= delta
-#	if spawn_state == State.WAITING:
-#		if enemy_node.get_child_count() == 0:
-#			spawn_state = State.COUNTING
-#			wave_timer = wave_interval
-#	if spawn_state == State.COUNTING:
-#		wave_timer -= delta
-#		if wave_timer <= 0:
-#			spawn_state = State.SPAWNING
-#			current_wave += 1
-#			generate_wave()
-#			spawn_timer = spawn_interval
+			get_tree().change_scene("res://TowerDefense/_Scenes/Win.tscn")
+	
 		
-		
-func spawn_enemy():
+func spawn_enemy() -> void:
 	var enemy = wave.pop_back().instance()
 	enemy_node.add_child(enemy)
 	enemy.global_transform.origin = global_transform.origin
 
 
-func generate_wave():
+func generate_wave() -> void:
 	wave_value = current_wave * value_multiplier
 	generate_enemies()
 	spawn_interval = wave_duration / wave.size()
 	
 
-func generate_enemies():
+func generate_enemies() -> void:
 	wave.clear()
 	while wave_value >= 1:
 		rng.randomize()
@@ -92,4 +72,3 @@ func generate_enemies():
 			wave.append(enemies[random_num])
 			wave_value -= enemy.spawn_cost
 		enemy.free()
-	print(wave)

@@ -5,7 +5,7 @@ export var angle_offset: float = -90
 onready var tower_controller: Tower = get_node("../../")
 
 
-func _physics_process(delta):
+func _physics_process(_delta) -> void:
 	if tower_controller.current_target != null and tower_controller.current_target.is_inside_tree():
 		var target_position = tower_controller.current_target.global_transform.origin
 		look_at(target_position, Vector3.UP)

@@ -1,12 +1,13 @@
 extends Button
+
 export (PackedScene) var tower
 
-onready var spatial = get_node("/root/Spatial")
 onready var gs: GameState = get_node("/root/Spatial/GameState")
 onready var price_display : Label = get_node("Label")
+onready var spatial = get_node("/root/Spatial")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func _ready() -> void:
 	connect("pressed", self, "stage_tower")
 	price_display.text = "Price: " + str(tower.instance().price)
 
