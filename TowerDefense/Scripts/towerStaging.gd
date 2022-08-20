@@ -18,6 +18,8 @@ func _physics_process(_delta) -> void:
 	var mouse_position = get_viewport().get_mouse_position()
 	ray_origin = camera.project_ray_origin(mouse_position)
 	ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 2000
+	# 1 means that there is a layermask on layer 1 so staged towers don't collide with themselves
+	# because they are on collision layer 2.
 	var intersection = space_state.intersect_ray(ray_origin, ray_end, [self], 1)
 
 	if not intersection.empty():

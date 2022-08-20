@@ -14,7 +14,9 @@ var can_attack: bool
 var current_target
 var kill_count: int
 var targeting_mode = Mode.FIRST
+var is_menu_up: bool = false
 
+onready var gs = get_node("/root/Spatial/GameState")
 onready var area = get_node("Area")
 onready var trigger_collider = get_node("Area/CollisionShape")
 
@@ -56,3 +58,21 @@ func attack_enemy() -> void:
 	attack_timer.start()
 	var enemy_manager = current_target.get_node("../")
 	enemy_manager.take_damage(self, damage)
+
+
+func increase_kills() -> void:
+	kill_count += 1
+	if is_menu_up:
+		gs.set_tower_kills()
+
+
+func _on_RigidBody_input_event(camera, event, position, normal, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed == true:
+			gs.set_tower_menu(self)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_RIGHT and event.pressed == false:
+			gs.unset_tower_menu()
