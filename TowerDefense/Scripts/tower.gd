@@ -13,6 +13,7 @@ var attack_timer:Timer
 var can_attack: bool
 var current_target
 var kill_count: int
+var price_invested: int = 0
 var targeting_mode = Mode.FIRST
 var is_menu_up: bool = false
 
