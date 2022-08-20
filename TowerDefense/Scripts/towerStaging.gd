@@ -35,6 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				var new_tower = tower.instance()
 				spatial.add_child(new_tower)
 				new_tower.global_transform.origin = global_transform.origin
+				new_tower.price_invested += price
 				gs.pay_for_tower(price)
 				queue_free()
 			if event.button_index == BUTTON_RIGHT:
