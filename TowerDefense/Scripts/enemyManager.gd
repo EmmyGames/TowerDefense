@@ -68,7 +68,7 @@ func get_current_health() -> int:
 func take_damage(var killer : Tower, var damage: int) -> void:
 	current_health -= damage
 	if current_health <= 0 and self.is_inside_tree():
-		killer.kill_count += 1
+		killer.increase_kills()
 		killer.current_target = null
 		gs.add_currency(reward)
 		get_parent().remove_child(self)
