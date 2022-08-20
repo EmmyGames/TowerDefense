@@ -1,8 +1,18 @@
 extends Tower
 
-#func _ready():
-#	target_enemy()
+export var attack : PackedScene
 
 
-#func target_enemy() -> void:
-#	print("test")
+func attack_enemy() -> void:
+	can_attack = false
+	attack_timer.wait_time = 1 / rate_of_fire
+	attack_timer.start()
+	var enemy_manager = current_target.get_node("../")
+	var new_attack = attack.instance()
+	get_node("/root/Spatial").add_child(new_attack)
+	if current_target.is_inside_tree():
+		new_attack.global_transform.origin = current_target.global_transform.origin
+	
+		new_attack.get_node("Area").tower = self
+		# The current target gets damaged twice for a direct hit.
+		enemy_manager.take_damage(self, damage)
