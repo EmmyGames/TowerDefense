@@ -59,6 +59,7 @@ func set_tower_menu(var tower: Tower):
 	current_tower.is_menu_up = true
 	tower_select_menu.get_node("Kills").text = "Kills: " + str(current_tower.kill_count)
 	tower_select_menu.get_node("Sell/SellPrice").text = "Price: " + str(current_tower.price_invested / 2)
+	tower_select_menu.get_node("Upgrade").update_button_display()
 	buy_menu.visible = false
 	tower_select_menu.visible = true
 

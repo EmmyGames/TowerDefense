@@ -3,12 +3,12 @@ class_name EnemyManager
 extends KinematicBody
 
 export var speed: float
-export var max_health: int
+export var max_health: float
 export var reward: int
 export var spawn_cost: int
 
 enum { DAMAGED, WALK, DIE, COMPLETE }
-var current_health: int
+var current_health: float
 var path = []
 var path_node = 0
 var current_state = WALK
@@ -61,11 +61,11 @@ func calc_patrol_path() -> void:
 		path_node = 0
 
 
-func get_current_health() -> int:
+func get_current_health() -> float:
 	return current_health
 
 
-func take_damage(var killer : Tower, var damage: int) -> void:
+func take_damage(var killer : Tower, var damage: float) -> void:
 	current_health -= damage
 	if current_health <= 0 and self.is_inside_tree():
 		killer.increase_kills()
