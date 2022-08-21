@@ -13,5 +13,4 @@ func damage_enemy(var collisions : Array) -> void:
 
 func _physics_process(delta):
 	var collisions = get_overlapping_areas()
-	if collisions.size() > 0:
-		damage_enemy(collisions)
+	damage_enemy(collisions)

@@ -12,7 +12,6 @@ func attack_enemy() -> void:
 	get_node("/root/Spatial").add_child(new_attack)
 	if current_target.is_inside_tree():
 		new_attack.global_transform.origin = current_target.global_transform.origin
-	
 		new_attack.get_node("Area").tower = self
 		# The current target gets damaged twice for a direct hit.
 		enemy_manager.take_damage(self, damage)
