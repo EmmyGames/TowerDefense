@@ -6,6 +6,7 @@ export var range_radius: float
 export var damage: float
 export var level: int
 export var rate_of_fire: float
+export (Array, PackedScene) var upgrades
 
 enum Mode {FIRST, LAST, NEAREST, FARTHEST}
 
@@ -74,6 +75,10 @@ func _on_RigidBody_input_event(camera, event, position, normal, shape_idx):
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and gs.current_state == gs.State.IDLE:
 		if event.button_index == BUTTON_RIGHT and event.pressed == false:
 			gs.unset_tower_menu()
+
+
+func update_range() -> void:
+	trigger_collider.shape.set_radius(range_radius)
