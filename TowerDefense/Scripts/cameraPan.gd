@@ -1,8 +1,8 @@
 extends Camera
 
-export var border_top: float
-export var border_right: float
 export var border_bottom: float
+export var border_right: float
+export var border_top: float
 export var border_left: float
 export var MAX_ZOOM: float
 export var pan_speed: float
