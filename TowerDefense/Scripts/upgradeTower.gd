@@ -15,8 +15,9 @@ func _ready() -> void:
 
 func upgrade_tower() -> void:
 	var tower = gs.current_tower
-	current_upgrade = tower.upgrades[tower.level - 1].instance()
-	if gs.get_currency() >= current_upgrade.cost:
+	current_upgrade = tower.upgrades[tower.upgrade_index].instance()
+	# If the player has enough coin and the tower has enough exp.
+	if gs.get_currency() >= current_upgrade.cost and tower.upgrade_index < tower.level - 1:
 		match current_upgrade.stat:
 			Stat.DAMAGE:
 				if current_upgrade.type == Type.FLAT:
@@ -36,15 +37,15 @@ func upgrade_tower() -> void:
 					tower.rate_of_fire *= (1 + current_upgrade.modifier / 100)
 		gs.pay_for_tower(current_upgrade.cost)
 		tower.price_invested += current_upgrade.cost
-		tower.level += 1
+		tower.upgrade_index += 1
 		gs.set_tower_menu(gs.current_tower)
 
 
 func update_button_display() -> void:
 	var tower = gs.current_tower
-	if tower.level - 1 < tower.upgrades.size():
+	if tower.upgrade_index < tower.upgrades.size():
 		var cost_UI = get_node("UpgradeCost")
-		current_upgrade = tower.upgrades[tower.level - 1].instance()
+		current_upgrade = tower.upgrades[tower.upgrade_index].instance()
 		text = convert_to_string(current_upgrade)
 		cost_UI.text = "Price: " + str(current_upgrade.cost)
 		visible = true
