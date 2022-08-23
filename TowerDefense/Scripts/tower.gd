@@ -4,7 +4,6 @@ class_name Tower
 
 export var range_radius: float
 export var damage: float
-export var level: int
 export var rate_of_fire: float
 export (Array, PackedScene) var upgrades
 
@@ -13,10 +12,15 @@ enum Mode {FIRST, LAST, NEAREST, FARTHEST}
 var attack_timer:Timer
 var can_attack: bool
 var current_target
+var exp_current: int = 0
+var exp_total: int
 var kill_count: int
+var level: int
 var price_invested: int = 0
 var targeting_mode = Mode.FIRST
+var upgrade_index: int = 0
 var is_menu_up: bool = false
+
 
 onready var gs = get_node("/root/Spatial/GameState")
 onready var area = get_node("Area")
@@ -24,6 +28,7 @@ onready var trigger_collider = get_node("Area/CollisionShape")
 
 
 func _ready() -> void:
+	exp_total = get_total_exp(level)
 	can_attack = true
 	attack_timer = Timer.new()
 	add_child(attack_timer)
@@ -82,3 +87,20 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func update_range() -> void:
 	trigger_collider.shape.set_radius(range_radius)
+
+
+func get_total_exp(var _level: int) -> int:
+	# TODO: Make a better equation for this later. This is a test equation.
+	return 100 * _level
+	
+
+func level_up():
+	if exp_current >= exp_total:
+		exp_current -= exp_total
+		level += 1
+		exp_total = get_total_exp(level)
+
+
+func increase_exp(var xp: int):
+	exp_current += xp
+	level_up()
