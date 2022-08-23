@@ -39,13 +39,13 @@ func calc_path() -> void:
 	var distance_to_wp = way_points[way_point_index].global_transform.origin - global_transform.origin
 	if path_node < path.size():
 		var direction = path[path_node] - global_transform.origin
-		if direction.length() < 1:
+		if direction.length() < 0.5:
 			path_node += 1
 		else:
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
 			look_at(path[path_node], Vector3.UP)
 			# If the enemy gets to the way point, point them to the next one.
-			if distance_to_wp.length() < 2:
+			if distance_to_wp.length() < 1.1:
 				if way_point_index < way_points.size() - 1:
 					way_point_index += 1
 				# If there are no more waypoints, they got to the end, so destroy them.
