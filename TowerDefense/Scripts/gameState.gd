@@ -11,11 +11,12 @@ var current_state = State.IDLE
 var current_wave : int = 0
 var valid_placement: bool
 var current_tower: Tower
+var still_playing: bool = true
+
 
 onready var buy_menu : Control = get_node("../UI/BuyMenu")
 onready var coins : Label = get_node("../UI/Coins")
 onready var lives_UI : Label = get_node("../UI/Lives")
-
 onready var tower_select_menu : Control = get_node("../UI/TowerSelect")
 onready var wave_UI : Label = get_node("../UI/WaveNumber")
 
@@ -40,7 +41,10 @@ func lose_lives(var damage: int) -> void:
 	current_lives -= damage
 	if current_lives <= 0:
 		current_lives = 0
-		get_tree().change_scene("res://TowerDefense/_Scenes/Lose.tscn")
+	if current_lives <= 0 and still_playing:
+		var lose_screen = load("res://TowerDefense/_Scenes/Lose.tscn").instance()
+		get_node("/root").add_child(lose_screen)
+		still_playing = false
 	lives_UI.text = "Lives: " + str(current_lives)
 
 

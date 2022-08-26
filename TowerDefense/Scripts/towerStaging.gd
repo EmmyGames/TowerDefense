@@ -25,7 +25,8 @@ func _physics_process(_delta) -> void:
 	if not intersection.empty():
 		var pos = intersection.position
 		global_transform.origin = pos
-
+	if not gs.still_playing:
+		queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouse:
