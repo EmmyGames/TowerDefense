@@ -6,7 +6,7 @@ export var value_multiplier: int
 export var wave_duration: float
 export var wave_interval: float
 
-enum State {SPAWNING, WAITING, COUNTING, WIN}
+enum State {SPAWNING, WAITING, COUNTING, WIN, LOSE}
 var current_wave: int = 0
 var rng = RandomNumberGenerator.new()
 var spawn_interval: float
@@ -21,6 +21,8 @@ onready var gs: GameState = get_node("/root/Spatial/GameState")
 
 
 func _physics_process(delta) -> void:
+	if not gs.still_playing:
+		spawn_state = State.LOSE
 	match spawn_state:
 		State.SPAWNING:
 			if spawn_timer <= 0 and wave.size() > 0:
@@ -46,7 +48,12 @@ func _physics_process(delta) -> void:
 				generate_wave()
 				spawn_timer = spawn_interval
 		State.WIN:
-			get_tree().change_scene("res://TowerDefense/_Scenes/Win.tscn")
+			gs.still_playing = false
+			var win_screen = load("res://TowerDefense/_Scenes/Win.tscn").instance()
+			get_node("/root").add_child(win_screen)
+			queue_free()
+		State.LOSE:
+			queue_free()
 	
 		
 func spawn_enemy() -> void:
