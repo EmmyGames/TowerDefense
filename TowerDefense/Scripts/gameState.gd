@@ -64,6 +64,7 @@ func set_tower_menu(var tower: Tower):
 	tower_select_menu.get_node("Kills").text = "Kills: " + str(current_tower.kill_count)
 	tower_select_menu.get_node("Sell/SellPrice").text = "Price: " + str(current_tower.price_invested / 2)
 	tower_select_menu.get_node("Upgrade").update_button_display()
+	tower_select_menu.get_node("LevelXP").text = "Lvl. " + str(current_tower.level) + "\nExp: " + str(current_tower.exp_current) + " / " + str(current_tower.exp_total)
 	buy_menu.visible = false
 	tower_select_menu.visible = true
 
@@ -71,6 +72,7 @@ func set_tower_menu(var tower: Tower):
 func set_tower_kills() -> void:
 	if current_tower != null:
 		tower_select_menu.get_node("Kills").text = "Kills: " + str(current_tower.kill_count)
+		tower_select_menu.get_node("LevelXP").text = "Lvl. " + str(current_tower.level) + "\nExp: " + str(current_tower.exp_current) + " / " + str(current_tower.exp_total)
 
 
 func unset_tower_menu() -> void:
