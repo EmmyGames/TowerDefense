@@ -63,6 +63,7 @@ func attack_enemy() -> void:
 	can_attack = false
 	attack_timer.wait_time = 1 / rate_of_fire
 	attack_timer.start()
+	#TODO: muzzle flash vfx
 	var enemy_manager = current_target.get_node("../")
 	enemy_manager.take_damage(self, damage)
 
