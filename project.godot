@@ -50,9 +50,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TowerDefense"
+config/name="BugOff"
 run/main_scene="res://TowerDefense/_Scenes/MainMenu.tscn"
-config/icon="res://icon.png"
+boot_splash/show_image=false
+config/icon="res://bug_icon.png"
+config/windows_native_icon="res://bug_icon.ico"
+
+[display]
+
+window/size/always_on_top=true
+window/vsync/use_vsync=false
 
 [gdnative]
 
