@@ -89,5 +89,4 @@ func toggle_pause() -> void:
 
 
 func set_pause(var is_paused: bool) -> void:
-	get_tree().paused = is_paused	
-
+	get_tree().paused = is_paused
