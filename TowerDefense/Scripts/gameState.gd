@@ -13,15 +13,16 @@ var valid_placement: bool
 var current_tower: Tower
 var still_playing: bool = true
 
-
-onready var buy_menu : Control = get_node("../UI/BuyMenu")
-onready var coins : Label = get_node("../UI/Coins")
-onready var lives_UI : Label = get_node("../UI/Lives")
-onready var tower_select_menu : Control = get_node("../UI/TowerSelect")
-onready var wave_UI : Label = get_node("../UI/WaveNumber")
+onready var buy_menu : Control = get_node("../UI/Info/BuyMenu")
+onready var coins : Label = get_node("../UI/Info/Coins")
+onready var lives_UI : Label = get_node("../UI/Info/Lives")
+onready var tower_select_menu : Control = get_node("../UI/Info/TowerSelect")
+onready var wave_UI : Label = get_node("../UI/Info/WaveNumber")
 
 
 func _ready() -> void:
+	Global.connect("set_pause", self, "set_pause")
+	Global.connect("toggle_pause", self, "toggle_pause")
 	coins.text = "Coins: " + str(currency)
 	current_lives = max_lives
 	lives_UI.text = "Lives: " + str(current_lives)
@@ -81,3 +82,12 @@ func unset_tower_menu() -> void:
 		current_tower = null
 		buy_menu.visible = true
 		tower_select_menu.visible = false
+
+
+func toggle_pause() -> void:
+	get_tree().paused = not get_tree().paused
+
+
+func set_pause(var is_paused: bool) -> void:
+	get_tree().paused = is_paused	
+

@@ -16,7 +16,6 @@ const ZOOM_RATE: float = 8.0
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	zoom = global_transform.origin.y
 	_target_zoom = zoom
 
@@ -43,6 +42,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				zoom_in()
 			if event.button_index == BUTTON_WHEEL_DOWN:
 				zoom_out()
+	if event is InputEventKey:
+		if event.is_pressed():
+			if event.scancode == KEY_ESCAPE:
+				Global.emit_signal("toggle_pause")
 
 
 func zoom_in() -> void:
