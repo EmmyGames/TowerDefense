@@ -30,7 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if event.button_mask == BUTTON_MASK_RIGHT:
 			var mouseMovement = Vector3(event.relative.x, 0, event.relative.y)
-			var new_transform = global_transform.origin - mouseMovement * pan_speed * 0.01 * zoom
+			var new_transform = global_transform.origin - mouseMovement * pan_speed * 0.001 * zoom
 			new_transform.x = max(new_transform.x, border_left)
 			new_transform.x = min(new_transform.x, border_right)
 			new_transform.z = max(new_transform.z, border_bottom)
