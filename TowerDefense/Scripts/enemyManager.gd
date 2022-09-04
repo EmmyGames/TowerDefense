@@ -52,12 +52,12 @@ func calc_path() -> void:
 				# If there are no more waypoints, they got to the end, so destroy them.
 				else:
 					gs.lose_lives(current_health)
-					get_parent().remove_child(self)
+					queue_free()
 			calc_patrol_path()
 
 
 func calc_patrol_path() -> void:
-	if self.is_inside_tree():
+	if is_instance_valid(self):
 		path = nav.get_simple_path(global_transform.origin, way_points[way_point_index].global_transform.origin, true)
 		path_node = 0
 
@@ -68,9 +68,9 @@ func get_current_health() -> float:
 
 func take_damage(var killer : Tower, var damage: float) -> void:
 	current_health -= damage
-	if current_health <= 0 and self.is_inside_tree():
+	if current_health <= 0 and is_instance_valid(self):
 		killer.increase_exp(exp_reward)
 		killer.increase_kills()
 		killer.current_target = null
 		gs.add_currency(reward)
-		get_parent().remove_child(self)
+		queue_free()

@@ -11,7 +11,14 @@ var ray_origin = Vector3()
 onready var camera: Camera = get_node("../Camera")
 onready var gs: GameState = get_node("/root/Spatial/GameState")
 onready var spatial = get_node("/root/Spatial")
+onready var range_indicator = $Base/RangeIndicator
 
+
+func _ready():
+	var temp_tower = tower.instance()
+	range_indicator.width = 2 * temp_tower.range_radius
+	range_indicator.depth = 2 * temp_tower.range_radius
+	temp_tower.queue_free()
 
 func _physics_process(_delta) -> void:
 	var space_state = get_world().direct_space_state

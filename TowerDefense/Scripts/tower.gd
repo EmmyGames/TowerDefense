@@ -40,7 +40,7 @@ func _ready() -> void:
 
 func _physics_process(_delta) -> void:
 	target_enemy()
-	if current_target != null and can_attack:
+	if is_instance_valid(current_target) and can_attack:
 		attack_enemy()
 
 
