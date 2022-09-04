@@ -25,6 +25,7 @@ var is_menu_up: bool = false
 onready var gs = get_node("/root/Spatial/GameState")
 onready var area = get_node("Area")
 onready var trigger_collider = get_node("Area/CollisionShape")
+onready var range_indicator = $Turret/Base/RangeIndicator
 
 
 func _ready() -> void:

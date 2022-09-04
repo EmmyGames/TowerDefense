@@ -7,7 +7,7 @@ func attack_enemy() -> void:
 	can_attack = false
 	attack_timer.wait_time = 1 / rate_of_fire
 	attack_timer.start()
-	var mf = $Turret_AOE/SwivelTray/Top/Barrels/MuzzleFlash
+	var mf = $Turret/SwivelTray/Top/Barrels/MuzzleFlash
 	mf.emitting = true
 	var enemy_manager = current_target.get_node("../")
 	var new_attack = attack.instance()

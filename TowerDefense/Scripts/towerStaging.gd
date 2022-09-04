@@ -16,8 +16,9 @@ onready var range_indicator = $Base/RangeIndicator
 
 func _ready():
 	var temp_tower = tower.instance()
-	range_indicator.width = 2 * temp_tower.range_radius
-	range_indicator.depth = 2 * temp_tower.range_radius
+	if temp_tower.range_radius < 75:
+		range_indicator.width = 2 * temp_tower.range_radius
+		range_indicator.depth = 2 * temp_tower.range_radius
 	temp_tower.queue_free()
 
 func _physics_process(_delta) -> void:
