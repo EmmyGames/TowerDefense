@@ -15,7 +15,7 @@ var current_target
 var exp_current: int = 0
 var exp_total: int
 var kill_count: int
-var level: int
+var level: int = 1
 var price_invested: int = 0
 var targeting_mode = Mode.FIRST
 var upgrade_index: int = 0
