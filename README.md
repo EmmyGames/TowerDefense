@@ -1,0 +1,7 @@
+# BUG OFF
+
+BUG OFF is a Tower Defense game developed and designed by Erick Latshaw and Paul Harden under the Boggle Games indie studio. This repository documents the development process of this game as it prepares for a release on Steam. Development started July 3rd, 2022 with the intentions of being a demo to test my understanding of Godot, having just taught it to myself a few weeks prior.
+
+BUG OFF's theme and setting is currently in the context of an alien bug infestation occuring on a future Earth. You play as a bug extermination company with high-tech turrets as a means to squash the incoming foes. Your company is called BUG OFF and customers in need of your help can reach you at "1-800 you filthy stinkin bugs better get off my planet or so help me god I am gunna squash ya td". You might think about changing your phone number but everyone's gotten used to it so it would really do more harm than good when the number changes and they can't reach you at your old number. Just a big mess.
+
+The main mechanics are very similar to the typical Tower Defense genre, but the twist is that the enemies can attack and destroy your turrets as well as your base. In conjunction with this, towers must gain their own individual experience from defeating enemies before they can level up and become more effective. This encourages a different type of puzzle that isn't solved by just using the highest DPS towers.
