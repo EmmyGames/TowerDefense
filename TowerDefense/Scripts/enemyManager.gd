@@ -51,7 +51,7 @@ func calc_path() -> void:
 					way_point_index += 1
 				# If there are no more waypoints, they got to the end, so destroy them.
 				else:
-					gs.lose_lives(current_health)
+					gs.lose_lives(int(current_health))
 					queue_free()
 			calc_patrol_path()
 
