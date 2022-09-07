@@ -76,7 +76,7 @@ func increase_kills() -> void:
 		gs.set_tower_kills()
 
 
-func _on_RigidBody_input_event(camera, event, position, normal, shape_idx):
+func _on_RigidBody_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed == true:
 			gs.set_tower_menu(self)

@@ -47,7 +47,7 @@ func lose_lives(var damage: int) -> void:
 		get_node("/root").add_child(lose_screen)
 		still_playing = false
 	lives_UI.text = "Lives: " + str(current_lives)
-
+	Global.emit_signal("base_damage")
 
 func pay_for_tower(var price: int) -> void:
 	currency -= price
@@ -65,7 +65,7 @@ func set_tower_menu(var tower: Tower):
 	current_tower = tower
 	current_tower.is_menu_up = true
 	tower_select_menu.get_node("Kills").text = "Kills: " + str(current_tower.kill_count)
-	tower_select_menu.get_node("Sell/SellPrice").text = "Sell: " + str(current_tower.price_invested / 2)
+	tower_select_menu.get_node("Sell/SellPrice").text = "Sell: " + str(int(current_tower.price_invested / 2.0))
 	tower_select_menu.get_node("Upgrade").update_button_display()
 	tower_select_menu.get_node("LevelXP").text = "Lvl. " + str(current_tower.level) + "\nExp: " + str(current_tower.exp_current) + " / " + str(current_tower.exp_total)
 	if current_tower.range_radius < 75:

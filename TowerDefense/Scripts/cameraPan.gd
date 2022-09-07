@@ -7,6 +7,11 @@ export var border_left: float
 export var MAX_ZOOM: float
 export var pan_speed: float
 
+export var NOISE_SHAKE_SPEED: float = 30.0
+export var NOISE_SHAKE_STRENGTH: float = 60.0
+export var SHAKE_DECAY_RATE: float = 5.0
+
+
 var _target_zoom: float
 var zoom: float
 
@@ -14,10 +19,26 @@ const MIN_ZOOM: float = 10.0
 const ZOOM_INCREMENT: float = 0.5
 const ZOOM_RATE: float = 8.0
 
+onready var rand = RandomNumberGenerator.new()
+onready var noise = OpenSimplexNoise.new()
+
+var noise_i: float = 0.0
+var shake_strength: float = 0.0
 
 func _ready() -> void:
+	rand.randomize()
+	noise.seed = rand.randi()
+	noise.period = 2
 	zoom = global_transform.origin.y
 	_target_zoom = zoom
+	Global.connect("base_damage", self, "screen_shake")
+
+
+func _process(delta: float) -> void:
+	shake_strength = lerp(shake_strength, 0, SHAKE_DECAY_RATE * delta)
+	var temp_offset = get_noise_offset(delta)
+	h_offset = temp_offset.x
+	v_offset = temp_offset.y
 
 
 func _physics_process(delta: float) -> void:
@@ -56,3 +77,16 @@ func zoom_in() -> void:
 func zoom_out() -> void:
 	_target_zoom = min(_target_zoom + ZOOM_INCREMENT, MAX_ZOOM)
 	set_physics_process(true)
+
+
+func screen_shake() -> void:
+	shake_strength = NOISE_SHAKE_STRENGTH
+	print("screen shake")
+
+
+func get_noise_offset(delta: float) -> Vector2:
+	noise_i += delta * NOISE_SHAKE_SPEED
+	return Vector2(
+		noise.get_noise_2d(1, noise_i) * shake_strength,
+		noise.get_noise_2d(100, noise_i) * shake_strength
+	)

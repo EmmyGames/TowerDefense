@@ -11,6 +11,6 @@ func damage_enemy(var collisions : Array) -> void:
 	get_parent().queue_free()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var collisions = get_overlapping_areas()
 	damage_enemy(collisions)
