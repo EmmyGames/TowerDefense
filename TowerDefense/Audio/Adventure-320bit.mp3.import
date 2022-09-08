@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Adventure-320bit.mp3-b127270bccb4be1351bfcc28aecbd08e.mp3str"
+
+[deps]
+
+source_file="res://TowerDefense/Audio/Adventure-320bit.mp3"
+dest_files=[ "res://.import/Adventure-320bit.mp3-b127270bccb4be1351bfcc28aecbd08e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

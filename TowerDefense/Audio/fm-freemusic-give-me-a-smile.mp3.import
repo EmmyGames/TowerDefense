@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fm-freemusic-give-me-a-smile.mp3-91b4d1eaf3e7fc715bcf4dbdb75146d0.mp3str"
+
+[deps]
+
+source_file="res://TowerDefense/Audio/fm-freemusic-give-me-a-smile.mp3"
+dest_files=[ "res://.import/fm-freemusic-give-me-a-smile.mp3-91b4d1eaf3e7fc715bcf4dbdb75146d0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

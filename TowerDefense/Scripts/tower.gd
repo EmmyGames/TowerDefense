@@ -21,11 +21,11 @@ var targeting_mode = Mode.FIRST
 var upgrade_index: int = 0
 var is_menu_up: bool = false
 
-
 onready var gs = get_node("/root/Spatial/GameState")
 onready var area = get_node("Area")
 onready var trigger_collider = get_node("Area/CollisionShape")
 onready var range_indicator = $Turret/Base/RangeIndicator
+onready var audio_player = $AudioPlayer
 
 
 func _ready() -> void:
@@ -61,6 +61,7 @@ func attack_timer_timeout() -> void:
 
 
 func attack_enemy() -> void:
+	audio_player.play_random_sound(0, 0, true)
 	can_attack = false
 	attack_timer.wait_time = 1 / rate_of_fire
 	attack_timer.start()
