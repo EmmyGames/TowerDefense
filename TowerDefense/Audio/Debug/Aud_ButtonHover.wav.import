@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/94664__twiggles__bang.wav-972dbf55653d2a30d9104c2c833ddbc4.sample"
+path="res://.import/Aud_ButtonHover.wav-e19498c1f4c90be609e95b1009bbc2fd.sample"
 
 [deps]
 
-source_file="res://TowerDefense/Audio/94664__twiggles__bang.wav"
-dest_files=[ "res://.import/94664__twiggles__bang.wav-972dbf55653d2a30d9104c2c833ddbc4.sample" ]
+source_file="res://TowerDefense/Audio/Debug/Aud_ButtonHover.wav"
+dest_files=[ "res://.import/Aud_ButtonHover.wav-e19498c1f4c90be609e95b1009bbc2fd.sample" ]
 
 [params]
 

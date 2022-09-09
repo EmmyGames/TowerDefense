@@ -4,6 +4,15 @@ export (Array, AudioStream) var sound_effects
 
 var rng = RandomNumberGenerator.new()
 var last_pitch : float = 1.0
+var destroy: bool = false
+
+func _start() -> void:
+	set_process(false)
+	
+
+func _process(_delta) -> void:
+	if destroy and not playing:
+		queue_free()
 
 
 func play_sound(var index) -> void:
@@ -32,3 +41,9 @@ func adjust_pitch() -> float:
 		
 	last_pitch = random_pitch
 	return random_pitch
+
+
+func destroy_after_sound(var start_index : int, var end_index : int, var has_random_pitch : bool) -> void:
+	play_random_sound(start_index, end_index, has_random_pitch)
+	set_process(true)
+	destroy = true

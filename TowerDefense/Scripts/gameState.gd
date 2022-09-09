@@ -47,7 +47,6 @@ func lose_lives(var damage: int) -> void:
 		get_node("/root").add_child(lose_screen)
 		still_playing = false
 	lives_UI.text = "Lives: " + str(current_lives)
-	Global.emit_signal("base_damage")
 
 func pay_for_tower(var price: int) -> void:
 	currency -= price
