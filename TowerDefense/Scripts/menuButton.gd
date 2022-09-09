@@ -3,9 +3,11 @@ extends Node
 
 func _ready() -> void:
 	connect("pressed", self, "button_pressed")
+	connect("mouse_entered", self, "button_hover")
 	
-	
+
 func button_pressed():
+	Global.emit_signal("button_event", 0)
 	match name:
 		"MainMenu":
 			get_node("../../").queue_free()
@@ -25,3 +27,7 @@ func button_pressed():
 			get_tree().change_scene("res://TowerDefense/_Scenes/Level_01.tscn")
 		"Resume":
 			Global.emit_signal("set_pause", false)
+
+
+func button_hover() -> void:
+	Global.emit_signal("button_event", 2)

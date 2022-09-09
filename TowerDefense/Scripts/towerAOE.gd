@@ -4,6 +4,7 @@ export var attack : PackedScene
 
 
 func attack_enemy() -> void:
+	audio_player.play_random_sound(0, 0, true)
 	can_attack = false
 	attack_timer.wait_time = 1 / rate_of_fire
 	attack_timer.start()

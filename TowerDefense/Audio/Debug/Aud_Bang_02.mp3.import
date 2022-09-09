@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Aud_Bang_02.mp3-d363a7e9d1dfc47e0f7efe592e2b1341.mp3str"
+
+[deps]
+
+source_file="res://TowerDefense/Audio/Debug/Aud_Bang_02.mp3"
+dest_files=[ "res://.import/Aud_Bang_02.mp3-d363a7e9d1dfc47e0f7efe592e2b1341.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

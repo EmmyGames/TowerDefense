@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mus_Intro.mp3-0f76951baed14e4b16c6ba7dd4f9bbf2.mp3str"
+
+[deps]
+
+source_file="res://TowerDefense/Audio/Debug/Mus_Intro.mp3"
+dest_files=[ "res://.import/Mus_Intro.mp3-0f76951baed14e4b16c6ba7dd4f9bbf2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
