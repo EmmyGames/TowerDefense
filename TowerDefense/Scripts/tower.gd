@@ -53,7 +53,8 @@ func target_enemy() -> void:
 			break
 		else:
 			current_target = null
-
+	if collisions.size() == 0:
+		current_target = null
 
 func attack_timer_timeout() -> void:
 	can_attack = true
