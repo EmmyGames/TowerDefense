@@ -49,6 +49,7 @@ run/main_scene="res://TowerDefense/_Scenes/MainMenu.tscn"
 boot_splash/show_image=false
 config/icon="res://TowerDefense/Art/bug_icon_normal.png"
 config/windows_native_icon="res://TowerDefense/Art/bug_icon_big.ico"
+boot_splash/show_image=false
 
 [autoload]
 
