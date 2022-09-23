@@ -19,7 +19,7 @@ var way_point_index: int = 0
 onready var gs: GameState = get_node("/root/Spatial/GameState")
 onready var nav = get_node("/root/Spatial/Navigation")
 onready var waypoints_node = get_node("/root/Spatial/WayPoints")
-
+onready var audio_player = $AudioPlayer
 
 func _ready() -> void:
 	current_health = max_health
@@ -51,13 +51,14 @@ func calc_path() -> void:
 					way_point_index += 1
 				# If there are no more waypoints, they got to the end, so destroy them.
 				else:
-					gs.lose_lives(current_health)
-					get_parent().remove_child(self)
+					Global.emit_signal("base_damage")
+					gs.lose_lives(int(current_health))
+					queue_free()
 			calc_patrol_path()
 
 
 func calc_patrol_path() -> void:
-	if self.is_inside_tree():
+	if is_instance_valid(self):
 		path = nav.get_simple_path(global_transform.origin, way_points[way_point_index].global_transform.origin, true)
 		path_node = 0
 
@@ -67,10 +68,16 @@ func get_current_health() -> float:
 
 
 func take_damage(var killer : Tower, var damage: float) -> void:
+	audio_player.play_random_sound(1, 2, true)
 	current_health -= damage
-	if current_health <= 0 and self.is_inside_tree():
+	if current_health <= 0 and is_instance_valid(self):
+		queue_free()
+		var temp_objects = get_node("/root/Spatial/TempObjects")
+		audio_player.destroy_after_sound(0, 0, true)
+		if audio_player.get_parent() != temp_objects:
+			self.remove_child(audio_player)
+			temp_objects.add_child(audio_player)
 		killer.increase_exp(exp_reward)
 		killer.increase_kills()
 		killer.current_target = null
 		gs.add_currency(reward)
-		get_parent().remove_child(self)

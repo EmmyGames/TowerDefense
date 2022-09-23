@@ -11,6 +11,7 @@ var current_upgrade : Upgrade
 
 func _ready() -> void:
 	connect("pressed", self, "upgrade_tower")
+	connect("mouse_entered", self, "mouse_hover")
 
 
 func upgrade_tower() -> void:
@@ -18,6 +19,7 @@ func upgrade_tower() -> void:
 	current_upgrade = tower.upgrades[tower.upgrade_index].instance()
 	# If the player has enough coin and the tower has enough exp.
 	if gs.get_currency() >= current_upgrade.cost and tower.upgrade_index < tower.level - 1:
+		Global.emit_signal("button_event", 0)
 		match current_upgrade.stat:
 			Stat.DAMAGE:
 				if current_upgrade.type == Type.FLAT:
@@ -39,6 +41,8 @@ func upgrade_tower() -> void:
 		tower.price_invested += current_upgrade.cost
 		tower.upgrade_index += 1
 		gs.set_tower_menu(gs.current_tower)
+	else:
+		Global.emit_signal("button_event", 1)
 
 
 func update_button_display() -> void:
@@ -68,3 +72,6 @@ func convert_to_string(var upgrade : Upgrade) -> String:
 			description += " Fire Rate"
 	return description
 	
+
+func mouse_hover() -> void:
+	Global.emit_signal("button_event", 2)

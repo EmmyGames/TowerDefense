@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mus_Victory.mp3-d4bb3df37c5e2177aa86c999f9a0d73f.mp3str"
+
+[deps]
+
+source_file="res://TowerDefense/Audio/Debug/Mus_Victory.mp3"
+dest_files=[ "res://.import/Mus_Victory.mp3-d4bb3df37c5e2177aa86c999f9a0d73f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
