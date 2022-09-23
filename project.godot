@@ -46,9 +46,9 @@ _global_script_class_icons={
 
 config/name="BugOff"
 run/main_scene="res://TowerDefense/_Scenes/MainMenu.tscn"
-boot_splash/show_image=false
 config/icon="res://TowerDefense/Art/bug_logo.png"
 config/windows_native_icon="res://TowerDefense/Art/bug_icon_big.ico"
+boot_splash/show_image=false
 
 [autoload]
 
