@@ -2,6 +2,7 @@ extends Node
 
 class_name Tower
 
+export var max_health: float = 30.0
 export var range_radius: float
 export var damage: float
 export var rate_of_fire: float
@@ -20,6 +21,7 @@ var price_invested: int = 0
 var targeting_mode = Mode.FIRST
 var upgrade_index: int = 0
 var is_menu_up: bool = false
+var current_health: float
 
 onready var gs = get_node("/root/Spatial/GameState")
 onready var area = get_node("Area")
@@ -29,6 +31,7 @@ onready var audio_player = $AudioPlayer
 
 
 func _ready() -> void:
+	current_health = max_health
 	exp_total = get_total_exp(level)
 	can_attack = true
 	attack_timer = Timer.new()
@@ -96,7 +99,7 @@ func update_range() -> void:
 
 func get_total_exp(var _level: int) -> int:
 	# TODO: Make a better equation for this later. This is a test equation.
-	return 100 * _level
+	return 30 * _level
 	
 
 func level_up():
