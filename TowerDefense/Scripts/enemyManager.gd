@@ -21,7 +21,6 @@ onready var nav = get_node("/root/Spatial/Navigation")
 onready var waypoints_node = get_node("/root/Spatial/WayPoints")
 onready var audio_player = $AudioPlayer
 
-
 func _ready() -> void:
 	current_health = max_health
 	create_path_array()
