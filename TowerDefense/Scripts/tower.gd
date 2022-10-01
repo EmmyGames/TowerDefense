@@ -2,6 +2,7 @@ extends Node
 
 class_name Tower
 
+export var max_health: float = 30.0
 export var range_radius: float
 export var damage: float
 export var rate_of_fire: float
@@ -20,6 +21,7 @@ var price_invested: int = 0
 var targeting_mode = Mode.FIRST
 var upgrade_index: int = 0
 var is_menu_up: bool = false
+var current_health: float
 
 onready var gs = get_node("/root/Spatial/GameState")
 onready var area = get_node("Area")
@@ -29,6 +31,7 @@ onready var audio_player = $AudioPlayer
 
 
 func _ready() -> void:
+	current_health = max_health
 	exp_total = get_total_exp(level)
 	can_attack = true
 	attack_timer = Timer.new()
@@ -55,6 +58,7 @@ func target_enemy() -> void:
 			current_target = null
 	if collisions.size() == 0:
 		current_target = null
+
 
 func attack_timer_timeout() -> void:
 	can_attack = true
@@ -96,8 +100,8 @@ func update_range() -> void:
 
 func get_total_exp(var _level: int) -> int:
 	# TODO: Make a better equation for this later. This is a test equation.
-	return 100 * _level
-	
+	return 30 * _level
+
 
 func level_up():
 	if exp_current >= exp_total:
@@ -109,3 +113,17 @@ func level_up():
 func increase_exp(var xp: int):
 	exp_current += xp
 	level_up()
+
+
+func take_damage(var killer, var damage: float) -> void:
+	audio_player.play_random_sound(1, 1, true)
+	current_health -= damage
+	if current_health <= 0 and is_instance_valid(self):
+		Global.emit_signal("tower_destroy")
+		queue_free()
+		var temp_objects = get_node("/root/Spatial/TempObjects")
+		audio_player.destroy_after_sound(1, 1, false)
+		if audio_player.get_parent() != temp_objects:
+			self.remove_child(audio_player)
+			temp_objects.add_child(audio_player)
+		killer.current_target = null

@@ -32,6 +32,7 @@ func _ready() -> void:
 	zoom = global_transform.origin.y
 	_target_zoom = zoom
 	Global.connect("base_damage", self, "screen_shake")
+	Global.connect("tower_destroy", self, "screen_shake")
 
 
 func _process(delta: float) -> void:

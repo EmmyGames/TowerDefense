@@ -1,6 +1,6 @@
-class_name EnemyManager
-
 extends KinematicBody
+
+class_name EnemyManager
 
 export var speed: float
 export var max_health: float
@@ -8,11 +8,11 @@ export var reward: int
 export var spawn_cost: int
 export var exp_reward: int
 
-enum { DAMAGED, WALK, DIE, COMPLETE }
+enum State { WALK, ATTACK, DIE, COMPLETE}
 var current_health: float
 var path = []
 var path_node = 0
-var current_state = WALK
+var current_state = State.WALK
 var way_points: Array
 var way_point_index: int = 0
 
@@ -28,6 +28,10 @@ func _ready() -> void:
 
 
 func _physics_process(_delta) -> void:
+	on_physics_process()
+
+
+func on_physics_process() -> void:
 	calc_path()
 
 
