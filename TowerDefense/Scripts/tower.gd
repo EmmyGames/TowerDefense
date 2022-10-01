@@ -115,7 +115,7 @@ func increase_exp(var xp: int):
 	level_up()
 
 
-func tower_take_damage(var killer, var damage: float) -> void:
+func take_damage(var killer, var damage: float) -> void:
 	audio_player.play_random_sound(1, 1, true)
 	current_health -= damage
 	if current_health <= 0 and is_instance_valid(self):

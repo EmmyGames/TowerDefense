@@ -28,6 +28,10 @@ func _ready() -> void:
 
 
 func _physics_process(_delta) -> void:
+	on_physics_process()
+
+
+func on_physics_process() -> void:
 	calc_path()
 
 
