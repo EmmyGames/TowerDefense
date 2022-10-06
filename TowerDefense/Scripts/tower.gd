@@ -118,9 +118,13 @@ func increase_exp(var xp: int):
 func take_damage(var killer, var damage: float) -> void:
 	audio_player.play_random_sound(1, 1, true)
 	current_health -= damage
+	if is_menu_up:
+		gs.set_tower_health()
 	if current_health <= 0 and is_instance_valid(self):
-		Global.emit_signal("tower_destroy")
 		queue_free()
+		Global.emit_signal("tower_destroy")
+		if is_menu_up:
+			gs.unset_tower_menu()
 		var temp_objects = get_node("/root/Spatial/TempObjects")
 		audio_player.destroy_after_sound(1, 1, false)
 		if audio_player.get_parent() != temp_objects:
